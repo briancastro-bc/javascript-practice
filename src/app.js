@@ -202,10 +202,168 @@ const convertNumberToString = (number) => {
  */
 
 // document.write(convertNumberToString("10"));
-const myName = "       Brian Castroooooo       ";
-const lastName = myName.replace("Castro", "Bedoya");
-const myNameLength = (myName.trim()).length;
+// const myName = "       Brian Castroooooo       ";
+// const lastName = myName.replace("Castro", "Bedoya");
+// const myNameLength = (myName.trim()).length;
 
-document.write(lastName);
-document.write("<br>");
-document.write(myNameLength);
+// document.write(lastName);
+// document.write("<br>");
+// document.write(myNameLength);
+
+// function testFunction(...args) {
+//   console.log('this', this);
+//   console.log('arguments', arguments);
+// }
+
+// const testFunction2 = (...args) => {
+//   console.log('this in arrow function', this);
+//   console.log('arguments in arrow function', arguments);
+// }
+
+// testFunction("hola", "que", "mas");
+// testFunction2("alo", "alo", "alo");
+
+// let myFirstNumber = 2;
+// let mySecondNumber = 5;
+
+// let result = myFirstNumber ** mySecondNumber;
+
+// document.write("Resultado: " + result);
+
+// result++
+
+// document.write("Resultado: " + result);
+
+// result--
+// document.write("Resultado: " + result);
+
+let myFirstNumber = 5;
+// myFirstNumber += 10;
+// myFirstNumber -= 10;
+// myFirstNumber *= 10;
+// myFirstNumber /= 10;
+// myFirstNumber %= 10;
+// myFirstNumber **= 10; // myFirstNumber = myFirstNumber + 10;
+
+const myString = "10";
+const myNumber = 10;
+
+// document.write(+myString === myNumber); // verdadero o falso
+
+document.write("10" != 10); // falso
+document.write("10" !== 10); // verdadero
+document.write(10 > 5); // verdadero
+document.write(10 < 5); // falso
+document.write(10 <= 10); // verdadero
+document.write(10 >= 9); // verdadero
+document.write("<br>"); // verdadero
+/**
+ * 
+ * Operador/condicion ternaria: condicion ? true : false
+ * 
+ */
+// document.write(18 < 18 ? "Es menor de edad" : "Es mayor de edad");
+
+// let name = undefined ?? 'Default Value';
+// let hasDNI = false;
+// let age = 19;
+
+// document.write("<br>");
+// document.write(hasDNI && age >= 18 ? "Es mayor de edad" : "Es menor de edad");
+// document.write(hasDNI || age >= 18 ? "Es mayor de edad" : "Es menor de edad");
+// document.write(!hasDNI);
+
+// document.write("<br>");
+
+// if (!name) {
+//   document.write("No tiene nombre");
+// } else {
+//   document.write("Si tiene nombre " + name);
+// }
+
+
+/**
+ * 
+ * Arrays: se podria un array es un almacen de valores o 
+ * variables.
+ * 
+ */
+
+let myList = ["Brian", 18, true, null];
+// console.log(myList[2]);
+// console.log(myList)
+// myList[3] = "Castro";
+// console.log(myList.length)
+// myList[4] = "New value";
+// console.log(myList);
+// console.log(myList.length)
+
+// myList.unshift("New value");
+// myList.push("New value");
+
+// myList.splice(2, 3)
+// myList.slice(2);
+// console.log(myList.slice(2));
+
+// let person = {
+//   firstName: "Brian",
+//   lastName: "Castro",
+//   age: 40,
+//   city: "Armenia",
+//   pets: ["Cat", "Perro", "Bird"],
+//   setAge: function (newAge) {
+//     this.age = newAge;
+//   }
+// };
+
+// person.pets.push("Snake");
+
+// console.log(person);
+
+// person.setAge(20);
+
+// console.log(person);
+
+const myNumbersList = [2, 5, 7, 9, 11, 15];
+
+/**
+ * 
+ * Sintaxis del bucle for:
+ * 
+ * for (inicio; condicion; accion)
+ * 
+ */
+// let multiplyNumber = 2;
+// for (let index = 0; index <= 10; index++) {
+//   console.log(`Tabla del ${multiplyNumber} x ${index} = ${multiplyNumber * index}`);
+//   // console.log('Tabla del ' + multiplyNumber + " x " + index + " = " + multiplyNumber * index);
+// }
+
+// numeroDeTabla = 2
+// longitud = 5
+function tablaDeMultiplicar(numeroDeTabla, longitud) {
+  console.log(`Tabla del ${numeroDeTabla}`);
+  // index = 6
+  // index <= longitud = verdadero
+  // 2 x 5 = 10
+  for (let index = 0; index <= longitud; index++) {
+    console.log(`${numeroDeTabla} x ${index} = ${numeroDeTabla * index}`);
+  }
+
+  console.log("finaliza for");
+}
+
+// tablaDeMultiplicar(10, 15);
+// tablaDeMultiplicar(5, 5);
+// tablaDeMultiplicar(450, 10);
+// tablaDeMultiplicar(2, 5);
+
+function factorial(number) {
+  if (number <= 1) {
+    return number;
+  }
+
+  return number * factorial(number - 1);
+}
+
+console.log(factorial(4));
