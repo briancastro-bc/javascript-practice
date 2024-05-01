@@ -8,6 +8,52 @@ const incremenetElement = document.getElementById("increment");
 const countElement = document.getElementById("count");
 const decrementElement = document.getElementById("decrement");
 
+/**
+ * 
+ * Formas de obtener elementos desde el DOM.
+ * getElementById();
+ * 
+ * 
+ */
+const myLinkElement = document.getElementById('myLink');
+console.log('link element', myLinkElement);
+
+myLinkElement.addEventListener('click', (event) => {
+  console.log('evento', event);
+  
+  if (myLinkElement.classList.contains('bg-red-500')) {
+    myLinkElement.classList.remove('bg-red-500');
+  } else {
+    myLinkElement.classList.add('bg-red-500');
+  }
+  // myLinkElement.href = "https://facebook.com";
+  // myLinkElement.target = "_blank";
+
+  // myLinkElement.style.fontSize = "24px";
+});
+
+myLinkElement.addEventListener('mouseenter', () => {
+  myLinkElement.style.fontSize = "24px";
+});
+
+myLinkElement.addEventListener('mouseleave', () => {
+  myLinkElement.style.fontSize = "16px";
+});
+
+// ARREGLO DE 2 elementos HTML: [link1, link1];
+const myLinksByClassName = document.getElementsByClassName('my-link');
+console.log('elements by className', myLinksByClassName);
+
+// for (let index = 0; index <= myLinksByClassName?.length; index++) {
+//   myLinksByClassName[index].textContent = `Link ${index}`;
+
+//   if (index % 2 == 0) {
+//     myLinksByClassName[index].classList.add('p-4', 'bg-red-500');
+//   } else {
+//     myLinksByClassName[index].classList.add('p-4', 'bg-blue-500');
+//   }
+// }
+
 // Paso 4. Definimos el contador que va a almacenar el valor
 let count = 0;
 
@@ -30,3 +76,51 @@ countElement.innerText = "Hola Mundo"
 // elemento
 incremenetElement.addEventListener("click", increment);
 decrementElement.addEventListener("click", decrement);
+
+const themeBtn = document.getElementById('themeBtn');
+
+const toggleTheme = async () => {
+  await fetchAllRickAndMortyCharacters();
+
+  const isDarkTheme = document.documentElement.classList.contains('dark');
+  return isDarkTheme ? 
+    document.documentElement.classList.remove('dark') :
+    document.documentElement.classList.add('dark');
+}
+
+const fetchAllRickAndMortyCharacters = async () => {
+  // TAREA CONSULTAR QUE HACE ESTA INFO
+  const response = await fetch('https://rickandmortyapi.com/api/character');
+  const characters = await response.json();
+
+  for (const character of characters.results) {
+    const characterElement = document.createElement('div');
+    characterElement.textContent = character?.name ?? 'Unnamed Character';
+
+    myLinkElement.appendChild(characterElement);
+  }
+
+  console.log('personajes de rick and morty', characters);
+}
+
+themeBtn.addEventListener('click', toggleTheme);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
