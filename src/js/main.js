@@ -116,11 +116,37 @@ themeBtn.addEventListener('click', toggleTheme);
 
 
 
+const btnElement = document.getElementById("btn");
+
+let counter = 1;
+
+btnElement.addEventListener("click", () => {
+  const colors = [
+    'red', 
+    'blue', 
+    'green', 
+    'yellow', 
+    'purple',
+  ];
+
+  const randomNumber = Math.floor(Math.random() * colors.length);
+  btnElement.style.backgroundColor = colors[randomNumber];
+});
 
 
+const fontBtnElement = document.getElementById('fontBtn');
+const fontElement = document.getElementById('font');
 
+let currentFontSize = 16;
 
+const incrementFontSize = () => {
+  currentFontSize++;
 
+  const result = `${currentFontSize}px`;
+  fontElement.style.fontSize = result;
+  fontElement.innerText = result;
+};
 
+fontBtnElement.addEventListener("click", incrementFontSize);
 
 
