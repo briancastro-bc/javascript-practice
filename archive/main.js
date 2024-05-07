@@ -103,10 +103,7 @@ const fetchAllRickAndMortyCharacters = async () => {
   console.log('personajes de rick and morty', characters);
 }
 
-themeBtn.addEventListener('click', toggleTheme);
-
-
-
+themeBtn.addEventListener('mouseenter', toggleTheme);
 
 
 
@@ -150,3 +147,8 @@ const incrementFontSize = () => {
 fontBtnElement.addEventListener("click", incrementFontSize);
 
 
+fetch('../mockup.json')
+  .then(async response => {
+    const result = await response.json();
+    console.log('mockup', result);
+  });

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi aplicación con javascript</title>
+  <link rel="stylesheet" href="./src/output.css">
+  <!-- <script>
+    alert('adios mundo');
+  </script> -->
+  <!-- <script src="src/app.js"></script> -->
+</head>
+<body class="h-full min-h-screen dark:bg-black dark:text-white">
+  <div class="h-full p-4 flex flex-col gap-y-4">
+    <div class="flex items-center gap-2">
+      <button id="btn">
+        Enviar
+      </button>
+      <!-- Paso 1. IDENTIFICAMOS LOS ELEMENTOS -->
+      <button id="increment">+</button>
+      <p id="count">
+        <!-- INNNTER TEXT NOS MODIFICA EL VALOR DEL TEXTO
+          DEL ELEMENTO -->
+          0
+      </p>
+      <button id="decrement">-</button>
+    </div>
+    <a class="my-link" href="./contact.html">My link</a>
+    <a class="my-link">My link</a>
+    <a class="my-link">My link</a>
+    <a class="my-link">My link</a>
+    <a class="my-link">My link</a>
+    <a class="my-link" id="myLink">My link</a>
+    <div>
+      <button 
+        type="button" 
+        id="themeBtn"
+        class="bg-blue-400 py-2 px-4 rounded-md">
+        Cambiar tema
+      </button>
+    </div>
+    <div class="flex items-center gap-x-4">
+      <button id="fontBtn">
+        Aumentar fuente
+      </button>
+      <p id="font">16px</p>
+    </div>
+  </div>
+
+  <script src="src/js/app.js"></script>
+  <script src="src/js/main.js"></script>
+</body>
+</html>

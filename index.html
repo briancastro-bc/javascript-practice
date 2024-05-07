@@ -1,53 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi aplicación con javascript</title>
-  <link rel="stylesheet" href="./src/output.css">
-  <!-- <script>
-    alert('adios mundo');
-  </script> -->
-  <!-- <script src="src/app.js"></script> -->
+  <title>Login</title>
+  <link rel="stylesheet" href="src/output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body class="h-full min-h-screen dark:bg-black dark:text-white">
-  <div class="h-full p-4 flex flex-col gap-y-4">
-    <div class="flex items-center gap-2">
-      <button id="btn">
-        Enviar
-      </button>
-      <!-- Paso 1. IDENTIFICAMOS LOS ELEMENTOS -->
-      <button id="increment">+</button>
-      <p id="count">
-        <!-- INNNTER TEXT NOS MODIFICA EL VALOR DEL TEXTO
-          DEL ELEMENTO -->
-          0
-      </p>
-      <button id="decrement">-</button>
+<body class="h-screen w-full overflow-hidden">
+  <main class="h-full w-full">
+    <div class="h-full flex flex-col p-6 gap-y-6">
+      <div class="flex flex-col gap-y-3">
+        <h1 class="font-secondary-alt text-2xl leading-6 font-bold text-primary">
+          Welcome Back
+        </h1>
+        <p class="font-primary text-lg font-normal leading-5">
+          Manage your finances with all the tools at your disposal.
+        </p>
+      </div>
+      <div class="flex flex-col gap-y-6">
+        <label 
+          for="username"
+          class="flex flex-col rounded-xl py-3 px-4 border border-primary-alt">
+          <span class="text-xs text-primary-alt font-secondary-alt">
+            Email or username
+          </span>
+          <input 
+            id="username" 
+            type="email" 
+            class="py-1 text-gray-700 text-sm focus:outline-none"
+            placeholder="example@mail.com">
+        </label>
+        <div class="flex flex-col gap-y-4">
+          <button 
+            id="next" 
+            type="button"
+            class="flex justify-center items-center gap-x-2 w-full py-4 bg-primary-alt text-white rounded-xl font-medium font-secondary-alt shadow-sm">
+            Next
+            <i class="bx bx-right-arrow-alt"></i>
+          </button>
+          <p class="text-center font-primary text-base">Do not have an account? 
+            <a class="text-primary-alt font-semibold underline">Sign up</a>
+          </p>
+        </div>
+      </div>
     </div>
-    <a class="my-link" href="./contact.html">My link</a>
-    <a class="my-link">My link</a>
-    <a class="my-link">My link</a>
-    <a class="my-link">My link</a>
-    <a class="my-link">My link</a>
-    <a class="my-link" id="myLink">My link</a>
-    <div>
-      <button 
-        type="button" 
-        id="themeBtn"
-        class="bg-blue-400 py-2 px-4 rounded-md">
-        Cambiar tema
-      </button>
-    </div>
-    <div class="flex items-center gap-x-4">
-      <button id="fontBtn">
-        Aumentar fuente
-      </button>
-      <p id="font">16px</p>
-    </div>
-  </div>
+  </main>
 
-  <script src="src/js/app.js"></script>
-  <script src="src/js/main.js"></script>
+  <script src="src/app.js"></script>
 </body>
 </html>

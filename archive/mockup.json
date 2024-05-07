@@ -1,0 +1,12 @@
+{
+  "nombre": "Brian",
+  "apellido": "Castro",
+  "age": 20,
+  "activo": true,
+  "hobbies": ["programar", "enseñar", "deporte"],
+  "direccion": {
+    "calle": "Av. Principal",
+    "numero": 123,
+    "codigoPostal": 919191
+  }
+}
