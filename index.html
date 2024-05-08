@@ -12,41 +12,136 @@
 </head>
 <body class="h-screen w-full overflow-hidden">
   <main class="h-full w-full">
-    <div class="h-full flex flex-col p-6 gap-y-6">
-      <div class="flex flex-col gap-y-3">
-        <h1 class="font-secondary-alt text-2xl leading-6 font-bold text-primary">
-          Welcome Back
-        </h1>
-        <p class="font-primary text-lg font-normal leading-5">
-          Manage your finances with all the tools at your disposal.
-        </p>
-      </div>
-      <div class="flex flex-col gap-y-6">
-        <label 
-          for="username"
-          class="flex flex-col rounded-xl py-3 px-4 border border-primary-alt">
-          <span class="text-xs text-primary-alt font-secondary-alt">
-            Email or username
-          </span>
-          <input 
-            id="username" 
-            type="email" 
-            class="py-1 text-gray-700 text-sm focus:outline-none"
-            placeholder="example@mail.com">
-        </label>
-        <div class="flex flex-col gap-y-4">
-          <button 
-            id="next" 
-            type="button"
-            class="flex justify-center items-center gap-x-2 w-full py-4 bg-primary-alt text-white rounded-xl font-medium font-secondary-alt shadow-sm">
-            Next
-            <i class="bx bx-right-arrow-alt"></i>
-          </button>
-          <p class="text-center font-primary text-base">Do not have an account? 
-            <a class="text-primary-alt font-semibold underline">Sign up</a>
+    <div id="stepper" class="h-full flex flex-col p-6 gap-y-6">
+      <section class="flex flex-col gap-y-6">
+        <!-- SECCION 1. TITULO Y SUBTITULO -->
+        <div class="flex flex-col gap-y-3">
+          <h1 class="font-secondary-alt text-2xl leading-6 font-bold text-primary">
+            Welcome Back
+          </h1>
+          <p class="font-primary text-lg font-normal leading-5">
+            Manage your finances with all the tools at your disposal.
           </p>
         </div>
+        <!-- FINAL SECCION 1 -->
+        <!-- SECCION 2. INPUT DE EMAIL Y BOTON -->
+        <form class="flex flex-col gap-y-6">
+          <label 
+            for="username"
+            class="flex flex-col rounded-xl py-3 px-4 border border-primary-alt">
+            <span class="text-xs text-primary-alt font-secondary-alt">
+              Email or username
+            </span>
+            <input 
+              id="username" 
+              type="email" 
+              name="username"
+              class="py-1 text-gray-700 text-sm focus:outline-none"
+              placeholder="example@mail.com">
+          </label>
+          <div class="flex flex-col gap-y-4">
+            <button 
+              id="nextBtn" 
+              type="button"
+              class="h-14 flex justify-center items-center gap-x-2 w-full py-4 bg-primary-alt text-white rounded-xl font-medium font-secondary-alt shadow-sm">
+              Next
+              <i class="bx bx-right-arrow-alt"></i>
+            </button>
+            <p class="text-center font-primary text-base">Do not have an account? 
+              <a class="text-primary-alt font-semibold underline">Sign up</a>
+            </p>
+          </div>
+        </form>
+        <!-- FINAL SECCION 2 -->
+      </section>
+      <!-- PAGINA 2 -->
+      <section class="flex flex-col gap-y-6">
+        <div class="flex flex-col gap-y-3">
+          <h1 id="greeting" class="font-secondary-alt text-2xl leading-6 font-bold text-primary">
+            Hello
+          </h1>
+          <p class="font-primary text-lg font-normal leading-5">
+            We are happy to have you with us once again.
+          </p>
+        </div>
+        <form class="flex flex-col gap-y-6">
+          <div class="flex flex-col gap-y-3">
+            <label 
+              for="password"
+              class="flex flex-col rounded-xl py-3 px-4 border border-primary-alt">
+              <span class="text-xs text-primary-alt font-secondary-alt">
+                Password
+              </span>
+              <div class="flex justify-between">
+                <input 
+                  id="password" 
+                  type="password" 
+                  name="password"
+                  class="py-1 text-gray-700 text-sm focus:outline-none"
+                  placeholder="- - - - - - - -">
+                <button 
+                  type="button" 
+                  id="showPasswordBtn"
+                  class="flex">
+                  <i class="bx bx-show text-2xl"></i>
+                </button>
+                <button 
+                  type="button" 
+                  class="hidden" 
+                  id="hidePasswordBtn">
+                    <i class="bx bx-low-vision text-2xl"></i>
+                </button>
+              </div>
+            </label>
+            <div class="flex justify-end mr-2">
+              <a class="text-base underline text-gray-900">
+                Forgot your password?
+              </a>
+            </div>
+          </div>
+          <div class="flex flex-col gap-y-4">
+            <div class="flex items-center gap-x-3">
+              <button
+                id="goBackBtn"
+                type="button"
+                class="h-14 w-14 flex justify-center items-center py-4 border border-primary-alt text-primary-alt rounded-xl">
+                <i class="bx bx-arrow-back"></i>
+              </button>
+              <button 
+                id="logInBtn" 
+                type="button"
+                class="h-14 flex justify-center items-center gap-x-2 w-full py-4 bg-primary-alt text-white rounded-xl font-medium font-secondary-alt shadow-sm">
+                Log in
+                <i class="bx bx-right-arrow-alt"></i>
+              </button>
+            </div>
+            <p class="text-center font-primary text-base">Do not have an account? 
+              <a class="text-primary-alt font-semibold underline">Sign up</a>
+            </p>
+          </div>
+        </form>
+      </section>
+      <!-- FIN PAGINA 2 -->
+      <!-- SECCION 3. HUELLA Y BOTONES DE INICIOS CON REDES SOCIALES -->
+      <div class="flex flex-col">
+        <div class="flex justify-center items-center py-3">
+          <button
+            id="fingerprint"
+            type="button"
+            class="h-[2.5cm] w-[2.5cm] flex justify-center items-center border border-gray-900 rounded-[20px]">
+            <i class="bx bx-fingerprint text-5xl"></i>
+          </button>
+        </div>
+        <div class="flex flex-col justify-center items-center py-3 gap-y-4">
+          <p class="font-primary text-sm">Or continue with</p>
+          <div class="flex items-center justify-center gap-x-6">
+            <button class="h-[50px] w-[50px] flex items-center justify-center rounded-2xl bg-gray-300"></button>
+            <button class="h-[50px] w-[50px] flex items-center justify-center rounded-2xl bg-gray-300"></button>
+            <button class="h-[50px] w-[50px] flex items-center justify-center rounded-2xl bg-gray-300"></button>
+          </div>
+        </div>
       </div>
+      <!-- FINAL SECCION 3 -->
     </div>
   </main>
 
