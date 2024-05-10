@@ -6,6 +6,8 @@
 */
 const stepper = document.getElementById('stepper');
 const greeting = document.getElementById('greeting');
+const usernameError = document.getElementById('usernameError');
+const passwordError = document.getElementById('passwordError');
 
 /**
  * 
@@ -31,7 +33,7 @@ const user = {
   name: "Brian",
   lastName: "Castro",
   email: "brian@mail.com",
-  password: "12345",
+  password: "12345678",
 };
 
 const applyButtonStyles = () => {
@@ -72,7 +74,7 @@ const renderCurrentStep = () => {
   }
 };
 
-const validateEmail = () => {
+const isValidEmail = () => {
   const email = usernameInput?.value;
   /**
    * 
@@ -90,6 +92,49 @@ const validateEmail = () => {
   return true;
 };
 
+const renderEmailError = () => {
+  if (!usernameError?.getElementsByTagName('p')[0]) {
+    const errorElement = document.createElement('p');
+  
+    const errorSpanElement = document.createElement('span');
+    errorSpanElement.textContent = 'El formato del correo electr\u00f3nico es inv\u00e1lido';
+  
+    const errorIconElement = document.createElement('i');
+    errorIconElement.classList.add('bx', 'bx-error', 'text-lg');
+  
+    errorElement.appendChild(errorIconElement)
+    errorElement.appendChild(errorSpanElement);
+  
+    errorElement?.classList?.add(
+      'flex', 
+      'items-center', 
+      'gap-x-2', 
+      'text-sm', 
+      'leading-4',
+      'text-red-500', 
+      'font-semibold', 
+      'ml-2'
+    );
+  
+    usernameError.appendChild(errorElement);
+  
+    usernameError.firstElementChild?.classList?.toggle('border-red-500');
+    usernameError.firstElementChild?.firstElementChild?.classList?.toggle('text-red-500');
+  }
+};
+
+const unrenderEmailError = () => {
+  usernameError?.firstElementChild?.classList?.remove('border-red-500');
+  usernameError?.firstElementChild?.classList?.toggle('border-primary-alt');
+
+  usernameError?.firstElementChild?.firstElementChild?.classList?.remove('text-red-500');
+  usernameError?.firstElementChild?.firstElementChild?.classList?.toggle('text-primary-alt');
+
+  if (usernameError.getElementsByTagName('p')[0]) {
+    usernameError?.lastElementChild?.remove();
+  }
+};
+
 const nextStep = () => {
   currentStep++;
   // currentStep += 1;
@@ -105,16 +150,21 @@ const previousStep = (event) => {
   // currentStep -= 1;
 
   renderCurrentStep();
+  unrenderEmailError();
 };
 
 const onNextStep = (event) => {
   event.preventDefault();
   event.stopPropagation();
 
-  const isValidEmail = validateEmail();
-  return isValidEmail 
-    ? nextStep() 
-    : alert('El email es invalido');
+  const validEmail = isValidEmail();
+  if (!validEmail) {
+    renderEmailError();
+    return;
+  }
+
+  unrenderEmailError();
+  nextStep();
 }
 
 nextBtn.onclick = onNextStep;
@@ -123,6 +173,52 @@ goBackBtn.onclick = previousStep;
 const showNameInGreeting = () => {
   greeting.textContent = `Hello ${user.name} ${user.lastName}`;
 };
+
+const isValidPassword = () => {
+  const password = passwordInput?.value;
+
+  const invalidPasswordResponse = [];
+
+  /**
+   * 
+   * Cantidad de caracteres
+   * Que coincida con la almacenada
+   * Que coincida tanto email como contraseña
+   * 
+   */
+  // if (password?.length < 8) return [false, 'La contraseña tiene menos de 8 caracteres'];
+  if (password?.length < 8) {
+    invalidPasswordResponse.push('la contra tiene menos de 8 caracteres');
+  }
+  // if (password !== user?.password) return [false, 'La contraseña no coincide'];
+  if (password !== user?.password) {
+    invalidPasswordResponse.push('la contraseña no coincide');
+  }
+  // if (password !== user?.password && usernameInput?.value !== user?.email) return [false, null];
+
+  return invalidPasswordResponse;
+};
+
+const onLogIn = () => {
+  // TODO: mostrar mensajes de error de la contraseña debajo
+  // del input de la contraseña como una lista, dependiendo de la cantidad
+  // de errores que haya
+  const passwordErrors = isValidPassword();
+
+  if (passwordErrors?.length > 0) {
+    for (const error of passwordErrors) {
+      console.log('error', error);
+    }
+  } else {
+    alert(`Bienvenido de nuevo ${user?.name}`);
+  }
+
+  // return validPassword 
+  //   ? alert(`Bienvenido de nuevo ${user?.name}`)
+  //   : console.log(message ?? 'La contraseña es incorrecta');
+};
+
+logInBtn.onclick = onLogIn;
 
 const showPassword = (event) => {
   event.preventDefault();

@@ -26,19 +26,22 @@
         <!-- FINAL SECCION 1 -->
         <!-- SECCION 2. INPUT DE EMAIL Y BOTON -->
         <form class="flex flex-col gap-y-6">
-          <label 
-            for="username"
-            class="flex flex-col rounded-xl py-3 px-4 border border-primary-alt">
-            <span class="text-xs text-primary-alt font-secondary-alt">
-              Email or username
-            </span>
-            <input 
-              id="username" 
-              type="email" 
-              name="username"
-              class="py-1 text-gray-700 text-sm focus:outline-none"
-              placeholder="example@mail.com">
-          </label>
+          <div id="usernameError" class="flex flex-col gap-y-3">
+            <label 
+              for="username"
+              class="flex flex-col rounded-xl py-3 px-4 border border-primary-alt">
+              <span class="text-xs text-primary-alt font-secondary-alt">
+                Email or username
+              </span>
+              <input 
+                id="username" 
+                type="email" 
+                name="username"
+                class="py-1 text-gray-700 text-sm focus:outline-none"
+                placeholder="example@mail.com">
+            </label>
+            <!-- ACA VA A AGREGAR EL PARRAFO -->
+          </div>
           <div class="flex flex-col gap-y-4">
             <button 
               same-btn
@@ -68,7 +71,7 @@
           </p>
         </div>
         <form class="flex flex-col gap-y-6">
-          <div class="flex flex-col gap-y-3">
+          <div id="passwordError" class="flex flex-col gap-y-3">
             <label 
               for="password"
               class="flex flex-col rounded-xl py-3 px-4 border border-primary-alt">
