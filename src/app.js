@@ -254,3 +254,61 @@ async function loadPage() {
 };
 
 window.onload = loadPage;
+
+// Me trae dos elementos: 
+// Me trae un elemento: Jose, JuanD, Jaime, David, Alfredo
+// No me trae nada: 
+// Error: 
+// getElementsByTagName(); // varios elementos
+
+const testFunction = (callback, param) => {
+  callback();
+  console.log(`hola desde afuera: param ${param}`);
+}
+
+const childFunction = () => {
+  console.log('hola desde adentro');
+}
+
+const hola = "Burro";
+
+testFunction(childFunction);
+
+function testFunction2() {
+  console.log('hola');
+}
+
+// Si: Jaime, Uriel, Alfredo
+// No: JuanD, Jose, 
+const animal = {
+  name: 'Pluto',
+  // eat: function (food) {
+  //   return `El animal ${this.name} come ${food}`;
+  // },
+  eat: (food) => {
+    return `El animal ${animal.name} come ${food}`;
+  },
+};
+
+console.log(animal.eat('pescado'));
+
+// arrow function: utiliza el contexto global
+// function: tiene contexto propio
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
